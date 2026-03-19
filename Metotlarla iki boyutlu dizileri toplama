@@ -1,0 +1,55 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+
+public class ikiboyutludizileritopla {
+
+    /**
+     iki boyutlu dizileri topkla döndür mertotlarla
+     */
+    public static void main(String[] args) {
+        int[][] sonuc= topla();
+        System.out.print(Arrays.deepToString(sonuc));
+    }
+    
+    
+    public static int[][] topla(){
+        Scanner input = new Scanner (System.in);
+        System.out.print("satır sayısını gir: ");
+        int m = input.nextInt();
+        System.out.print("sütun sayısını gir: ");
+        int n = input.nextInt();
+        
+        
+        int[][] dizi= new int[m][n]; 
+        int[][] dizi2 = new int[m][n];
+        int[][] sum= new int[m][n];  // Sonuçları buraya yazdırmamız gerekiyor
+        
+        
+        System.out.print("1. matris elemanlarını girin: ");
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                dizi[i][j] = input.nextInt();            
+            }
+        }
+        
+        System.out.print("2. matris elemanlarını gir: ");
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                dizi2[i][j]= input.nextInt();
+            }
+        }
+        
+        //TOPLAMA İŞLEMİNİ YAPTIR
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+            //KARŞILIKLI HÜCRELERİ TOPLAYIP TOPLAM MATRİSİNE AKTARDIK
+            sum[i][j]= dizi[i][j]+ dizi2[i][j];     
+            }
+ 
+        }
+               
+        return sum; //TOPLAM SONUCU DÖNDÜRÜYORUZ       
+    }
+    
+}
