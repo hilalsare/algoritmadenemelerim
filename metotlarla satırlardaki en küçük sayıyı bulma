@@ -1,0 +1,39 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+
+public class satırdakiküçüksayı {
+
+    /**
+     * iki boyutlu dizideki her atırdaki en küçük sayıyı yazdır
+     */
+    public static void main(String[] args) {
+        satırdaküçük();
+    }
+    public static void satırdaküçük(){
+        Scanner input = new Scanner (System.in);
+        System.out.print("satır sayıası: ");        
+        int m = input.nextInt();
+        System.out.print("sütun sayısı: ");
+        int n = input.nextInt();
+        int[][] dizi= new int[m][n];
+        
+        
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(i +". satır" + j + ".sütun");
+                dizi[i][j]=input.nextInt();
+            }
+        }
+        for (int i = 0; i < m; i++) {
+            int minsatır = dizi[i][0];
+            for (int j = 0; j < n; j++) {
+                if (dizi[i][j]<minsatır) {
+                    minsatır=dizi[i][j];
+                }
+            }
+            System.out.println((i+1)+ ".satırlardaki en küçük eleman: "+minsatır);
+        }
+        }
+    
+}
