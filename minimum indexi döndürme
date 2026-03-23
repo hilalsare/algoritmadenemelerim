@@ -1,0 +1,50 @@
+import java.util.Arrays;
+import java.util.Random;
+import java.util.Scanner;
+
+
+public class minindex {
+
+    /**
+     her satırdaki minimnum sayının indisini diziye ata diziyi döndür
+     */
+    public static void main(String[] args) {
+        int[] sonuc =index();
+        System.out.println("her satırdaki min index: " + Arrays.toString(sonuc));
+    }
+    
+    public static int[] index(){
+        Scanner input = new Scanner(System.in);
+        Random rnd = new Random();
+        System.out.print("Satır sayısı: ");
+        int roll= input.nextInt();
+        System.out.print("Sütun sayısı: ");
+        int column= input.nextInt();
+        
+        int[][] dizi= new int[roll][column];
+        int[] mindexdizi= new int[roll];
+        //matrisi rastgele dolfurma ve ekrana basma
+        System.out.println("oluşturulan matris: ");
+        for (int i = 0; i < roll; i++) {
+            for (int j = 0; j < column; j++) {        
+                dizi[i][j]= rnd.nextInt(10);
+                System.out.print(dizi[i][j]+ " ");
+            }
+            System.out.println();
+        }
+        
+        for (int i = 0; i < roll; i++) {
+            int minroll=dizi[i][0];
+            int mindex=0;
+            for (int j = 0; j < column; j++) {
+                if (dizi[i][j]<minroll) {
+                    minroll=dizi[i][j];
+                    mindex=j; 
+                }
+            }
+        mindexdizi[i]= mindex;
+        }
+        return mindexdizi;
+    }
+    
+}
